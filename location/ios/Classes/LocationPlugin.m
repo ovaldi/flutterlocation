@@ -168,11 +168,14 @@
         }
     }
 #else
-    if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"] != nil) {
-        [self.clLocationManager requestWhenInUseAuthorization];
+    if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysAndWhenInUseUsageDescription"] != nil) {
+        [self.clLocationManager requestAlwaysAuthorization];
     }
     else if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"] != nil) {
         [self.clLocationManager requestAlwaysAuthorization];
+    }
+    else if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"] != nil) {
+        [self.clLocationManager requestWhenInUseAuthorization];
     }
 #endif
     else {
